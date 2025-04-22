@@ -1,5 +1,18 @@
-FROM n8nio/n8n:latest
+FROM node:18-slim
 
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+  python3 \
+  build-essential \
+  && rm -rf /var/lib/apt/lists/*
+
+# Create app directory
+WORKDIR /app
+
+# Install n8n globally
+RUN npm install -g n8n
+
+# Copy configuration files
 ENV N8N_BASIC_AUTH_ACTIVE=true
 ENV N8N_BASIC_AUTH_USER=admin
 ENV N8N_BASIC_AUTH_PASSWORD=admin123
