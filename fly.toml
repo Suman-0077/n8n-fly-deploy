@@ -1,0 +1,29 @@
+app = "suman"
+primary_region = "syd"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  N8N_BASIC_AUTH_ACTIVE = "true"
+  N8N_BASIC_AUTH_USER = "admin"
+  N8N_BASIC_AUTH_PASSWORD = "admin123"
+  DB_TYPE = "postgresdb"
+  DB_POSTGRESDB_HOST = "db.luirtfmbdfshflnkfqng.supabase.co"
+  DB_POSTGRESDB_PORT = "5432"
+  DB_POSTGRESDB_DATABASE = "postgres"
+  DB_POSTGRESDB_USER = "postgres"
+  DB_POSTGRESDB_PASSWORD = "Duffy@215092"
+  NODE_OPTIONS = "--dns-result-order=ipv4first"
+
+[[services]]
+  internal_port = 5678
+  protocol = "tcp"
+
+  [[services.ports]]
+    handlers = ["http"]
+    port = 80
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
