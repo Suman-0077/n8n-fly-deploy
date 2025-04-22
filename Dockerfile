@@ -1,4 +1,4 @@
-FROM n8nio/n8n
+FROM n8nio/n8n:latest
 
 ENV N8N_BASIC_AUTH_ACTIVE=true
 ENV N8N_BASIC_AUTH_USER=admin
@@ -14,6 +14,7 @@ ENV DB_POSTGRESDB_PASSWORD=Duffy@215092
 ENV N8N_HOST=0.0.0.0
 ENV N8N_PORT=5678
 ENV N8N_PROTOCOL=https
+ENV WEBHOOK_URL=https://suman.fly.dev
 ENV NODE_OPTIONS=--dns-result-order=ipv4first
 
 EXPOSE 5678
